@@ -10,7 +10,7 @@ def scan(ipaddress,port):
 			banner = get_banner(sock,ipaddress,port)
 			print('[+] Open Port ' + str(port) + ' : ' + str(banner.decode().strip('\n')))
 		except:
-			print("[+]Open Port " + str(port))
+			print("[+]Open Port " + str(port) + ' : Don't know..')
 	except:
 		pass
 
@@ -19,7 +19,7 @@ def  get_banner(socket,addr,port):
         bannergrabber = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         bannergrabber.connect((addr, port))
         bannergrabber.send('WhoAreYou\r\n')
-        return bannergrabber.recv(100)
+        return bannergrabber.recv(1024)
 
 
 
@@ -71,7 +71,7 @@ def scan_ports(ip):
 		for ports in range(first_port, max_ports):
 			scan(ip,ports)
 	else:
-		Print("Unacceptable answer")
+		print("Unacceptable answer")
 
 ip=input("Give me the IP: ")
 scan_ports(ip)

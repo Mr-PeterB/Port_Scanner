@@ -68,7 +68,6 @@ def scan_ports(ip):
 			scan(ip,ports)
 	else:
 		Print("Unacceptable answer")
-		break
 
 ip=input("Give me the IP: ")
 scan_ports(ip)

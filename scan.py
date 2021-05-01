@@ -10,7 +10,7 @@ def scan(ipaddress,port):
 			banner = get_banner(sock,ipaddress,port)
 			print('[+] Open Port ' + str(port) + ' : ' + str(banner.decode().strip('\n')))
 		except:
-			print("[+]Open Port " + str(port) + ' : Don't know..')
+			print("[+]Open Port " + str(port) + ' : Don\'t know..')
 	except:
 		pass
 

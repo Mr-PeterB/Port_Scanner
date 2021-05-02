@@ -4,7 +4,7 @@ from IPy import IP
 def scan(ipaddress,port):
 	try:
 		sock=socket.socket()
-		sock.settimeout(0.5)
+		sock.settimeout(1.5)
 		sock.connect((ipaddress, port))
 		try:
 			banner = get_banner(sock,ipaddress,port)

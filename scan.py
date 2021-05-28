@@ -6,20 +6,20 @@ def scan(ipaddress,port):
 		sock=socket.socket()
 		sock.settimeout(1.5)
 		sock.connect((ipaddress, port))
-		try:
-			banner = get_banner(sock,ipaddress,port)
-			print('[+] Open Port ' + str(port) + ' : ' + str(banner.decode().strip('\n')))
-		except:
-			print("[+]Open Port " + str(port) + ' : Don\'t know..')
+		banner = get_banner(ipaddress,port)
+		print('[+] Open Port ' + str(port) + ' : ' + str(banner.strip('\n'))
 	except:
 		pass
 
 
-def  get_banner(socket,addr,port):
-        bannergrabber = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        bannergrabber.connect((addr, port))
-        bannergrabber.send('WhoAreYou\r\n')
-        return bannergrabber.recv(1024)
+def  get_banner(addr,port):
+        try:
+                bannergrabber = socket.socket()
+                bannergrabber.connect((addr, port))
+                return bannergrabber.recv(1024)
+        except:
+                ans = "Unknown"
+                return ans
 
 
 

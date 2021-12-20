@@ -7,7 +7,7 @@ def scan(ipaddress,port):
 		sock.settimeout(1.5)
 		sock.connect((ipaddress, port))
 		banner = get_banner(ipaddress,port)
-		print('[+] Open Port ' + str(port) + ' : ' + str(banner.strip('\n'))
+		print('[+] Open Port ' + str(port) + ' : ' + str(banner.strip('\n')))
 	except:
 		pass
 

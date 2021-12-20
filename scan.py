@@ -16,8 +16,7 @@ def scan(ipaddress,port):
 
 
 def  get_banner(s):
-	try:
-		return s.recv(1024)
+	return s.recv(1024)
 
 
 

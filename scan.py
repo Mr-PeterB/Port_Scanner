@@ -13,10 +13,11 @@ def scan(ipaddress,port):
 
 
 def  get_banner(addr,port):
-        try:
-                bannergrabber = socket.socket()
-                bannergrabber.connect((addr, port))
-                return bannergrabber.recv(1024).decode()
+        s = socket.socket()
+        s.connect((addr, port))
+	try:
+                bannergrabber = s.recv(1024)
+                return bannergrabber.decode()
         except:
                 ans = "Unknown"
                 return ans

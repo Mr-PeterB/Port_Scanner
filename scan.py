@@ -4,7 +4,7 @@ from IPy import IP
 def scan(ipaddress,port):
 	try:
 		sock=socket.socket()
-		sock.settimeout(1.5)
+		sock.settimeout(0.5)
 		sock.connect((ipaddress, port))
 		banner = get_banner(ipaddress,port)
 		print('[+] Open Port ' + str(port) + ' : ' + str(banner.strip('\n')))
@@ -16,7 +16,7 @@ def  get_banner(addr,port):
         try:
                 bannergrabber = socket.socket()
                 bannergrabber.connect((addr, port))
-                return bannergrabber.recv(1024)
+                return bannergrabber.recv(1024).decode()
         except:
                 ans = "Unknown"
                 return ans
